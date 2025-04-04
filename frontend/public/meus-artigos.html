@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meus Artigos - Artigos Acadêmicos</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+            <div class="container">
+                <a class="navbar-brand text-white" href="/"><i class="fas fa-graduation-cap me-2"></i>Artigos Acadêmicos</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="/"><i class="fas fa-home me-1"></i> Início</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="/artigos"><i class="fas fa-book me-1"></i> Artigos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="/submeter"><i class="fas fa-upload me-1"></i> Submeter Artigo</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white active" href="/meus-artigos"><i class="fas fa-folder me-1"></i> Meus Artigos</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex" id="auth-buttons">
+                        <a href="/login" class="btn btn-light me-2"><i class="fas fa-sign-in-alt me-1"></i> Entrar</a>
+                        <a href="/cadastro" class="btn btn-outline-light"><i class="fas fa-user-plus me-1"></i> Cadastrar</a>
+                    </div>
+                    <div class="d-none" id="user-dropdown">
+                        <div class="dropdown">
+                            <button class="btn btn-light dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-user-circle me-1"></i> <span id="username">Usuário</span>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                                <li><a class="dropdown-item" href="/perfil"><i class="fas fa-user me-1"></i> Meu Perfil</a></li>
+                                <li><a class="dropdown-item" href="/meus-artigos"><i class="fas fa-folder me-1"></i> Meus Artigos</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#" id="logout-btn"><i class="fas fa-sign-out-alt me-1"></i> Sair</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="py-4">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h2><i class="fas fa-folder me-2"></i>Meus Artigos</h2>
+                    <a href="/submeter" class="btn btn-primary">
+                        <i class="fas fa-plus me-1"></i> Submeter Novo Artigo
+                    </a>
+                </div>
+                
+                <div id="meus-artigos-container">
+                    <div class="text-center py-5">
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="visually-hidden">Carregando...</span>
+                        </div>
+                        <p class="mt-2">Carregando seus artigos...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <h5>Artigos Acadêmicos</h5>
+                    <p>Uma plataforma para compartilhamento de conhecimento acadêmico entre colegas de curso.</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Links Rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="/" class="text-white">Início</a></li>
+                        <li><a href="/artigos" class="text-white">Artigos</a></li>
+                        <li><a href="/submeter" class="text-white">Submeter Artigo</a></li>
+                        <li><a href="/politica-privacidade" class="text-white">Política de Privacidade</a></li>
+                        <li><a href="/termos-uso" class="text-white">Termos de Uso</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Contato</h5>
+                    <p><i class="fas fa-envelope me-2"></i>contato@artigosacademicos.com</p>
+                    <p><i class="fas fa-phone me-2"></i>(00) 12345-6789</p>
+                    <div class="mt-3">
+                        <a href="#" class="text-white me-2"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white me-2"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white me-2"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center">
+                <p class="mb-0">&copy; 2025 Artigos Acadêmicos. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal de confirmação de exclusão -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-danger text-white">
+                    <h5 class="modal-title" id="deleteModalLabel">Confirmar Exclusão</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Tem certeza que deseja excluir o artigo <strong id="delete-artigo-titulo"></strong>?</p>
+                    <p class="text-danger">Esta ação não pode ser desfeita!</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-danger" id="confirm-delete-btn">Excluir</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Template para card de artigo -->
+    <template id="meu-artigo-template">
+        <div class="card mb-3">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-8">
+                        <h5 class="card-title artigo-titulo"></h5>
+                        <p class="card-text artigo-resumo"></p>
+                        <div class="d-flex mb-2">
+                            <span class="badge bg-primary me-2 artigo-categoria"></span>
+                            <span class="badge bg-secondary me-2 artigo-status"></span>
+                            <small class="text-muted artigo-data"></small>
+                        </div>
+                        <div class="mb-2 artigo-tags"></div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="d-flex flex-column h-100 justify-content-between">
+                            <div class="mb-3">
+                                <div class="mb-1">
+                                    <i class="fas fa-eye me-1"></i> <span class="artigo-visualizacoes">0</span> visualizações
+                                </div>
+                                <div class="mb-1">
+                                    <i class="fas fa-download me-1"></i> <span class="artigo-downloads">0</span> downloads
+                                </div>
+                                <div>
+                                    <i class="fas fa-star text-warning me-1"></i> <span class="artigo-avaliacao">0</span> 
+                                    (<span class="artigo-total-avaliacoes">0</span> avaliações)
+                                </div>
+                            </div>
+                            <div class="d-flex flex-wrap justify-content-end">
+                                <a href="#" class="btn btn-sm btn-outline-primary me-1 mb-1 artigo-view-btn">
+                                    <i class="fas fa-eye me-1"></i> Ver
+                                </a>
+                                <a href="#" class="btn btn-sm btn-outline-success me-1 mb-1 artigo-download-btn">
+                                    <i class="fas fa-download me-1"></i> Baixar
+                                </a>
+                                <a href="#" class="btn btn-sm btn-outline-secondary me-1 mb-1 artigo-edit-btn">
+                                    <i class="fas fa-edit me-1"></i> Editar
+                                </a>
+                                <button class="btn btn-sm btn-outline-danger mb-1 artigo-delete-btn">
+                                    <i class="fas fa-trash me-1"></i> Excluir
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Verificar autenticação
+            const token = localStorage.getItem('token');
+            const user = JSON.parse(localStorage.getItem('user') || '{}');
+            
+            if (!token) {
+                // Redirecionar para a página de login se não estiver autenticado
+                window.location.href = '/login?redirect=/meus-artigos';
+                return;
+            }
+            
+            // Atualizar interface para usuário logado
+            document.getElementById('auth-buttons').classList.add('d-none');
+            document.getElementById('user-dropdown').classList.remove('d-none');
+            document.getElementById('username').textContent = user.nome || 'Usuário';
+            
+            // Logout
+            document.getElementById('logout-btn').addEventListener('click', function(e) {
+                e.preventDefault();
+                localStorage.removeItem('token');
+                localStorage.removeItem('user');
+                window.location.href = '/';
+            });
+            
+            // Variáveis para exclusão de artigo
+            let artigoIdParaExcluir = null;
+            const deleteModal = new bootstrap.Modal(document.getElementById('deleteModal'));
+            
+            // Carregar artigos do usuário
+            async function carregarMeusArtigos() {
+                try {
+                    const response = await fetch('/api/articles/user/me', {
+                        headers: {
+                            'Authorization': `Bearer ${token}`
+                        }
+                    });
+                    
+                    if (response.ok) {
+                        const data = await response.json();
+                        const artigosContainer = document.getElementById('meus-artigos-container');
+                        
+                        if (data.artigos.length === 0) {
+                            artigosContainer.innerHTML = `
+                                <div class="alert alert-info">
+                                    <i class="fas fa-info-circle me-2"></i> Você ainda não submeteu nenhum artigo.
+                                    <a href="/submeter" class="alert-link">Clique aqui</a> para submeter seu primeiro artigo.
+                                </div>
+                            `;
+                            return;
+                        }
+                        
+                        artigosContainer.innerHTML = '';
+                        const template = document.getElementById('meu-artigo-template');
+                        
+                        data.artigos.forEach(artigo => {
+                            const clone = document.importNode(template.content, true);
+                            
+                            // Preencher dados básicos
+                            clone.querySelector('.artigo-titulo').textContent = artigo.titulo;
+                            clone.querySelector('.artigo-resumo').textContent = artigo.resumo.length > 150 
+                                ? artigo.resumo.substring(0, 150) + '...' 
+                                : artigo.resumo;
+                            clone.querySelector('.artigo-categoria').textContent = artigo.categoria_nome;
+                            
+                            // Status do artigo
+                            const statusBadge = clone.querySelector('.artigo-status');
+                            if (artigo.aprovado) {
+                                statusBadge.textContent = 'Aprovado';
+                                statusBadge.classList.remove('bg-secondary');
+                                statusBadge.classList.add('bg-success');
+                            } else {
+                                statusBadge.textContent = 'Pendente';
+                                statusBadge.classList.remove('bg-secondary');
+                                statusBadge.classList.add('bg-warning');
+                            }
+                            
+                            // Formatar data
+                            const data = new Date(artigo.data_submissao);
+                            clone.querySelector('.artigo-data').textContent = data.toLocaleDateString('pt-BR');
+                            
+                            // Preencher tags
+                            const tagsContainer = clone.querySelector('.artigo-tags');
+                            if (artigo.tags && artigo.tags.length > 0) {
+                                artigo.tags.forEach(tag => {
+                                    const tagSpan = document.createElement('span');
+                                    tagSpan.className = 'tag me-1';
+                                    tagSpan.textContent = tag.nome;
+                                    tagsContainer.appendChild(tagSpan);
+                                });
+                            } else {
+                                tagsContainer.innerHTML = '<small class="text-muted">Sem tags</small>';
+                            }
+                            
+                            // Preencher estatísticas
+                            clone.querySelector('.artigo-visualizacoes').textContent = artigo.visualizacoes || 0;
+                            clone.querySelector('.artigo-downloads').textContent = artigo.downloads || 0;
+                            
+                            const avaliacao = artigo.avaliacao_media 
+                                ? parseFloat(artigo.avaliacao_media).toFixed(1) 
+               
+(Content truncated due to size limit. Use line ranges to read in chunks)

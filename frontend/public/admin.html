@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Administrativo - Artigos Acadêmicos</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+            <div class="container">
+                <a class="navbar-brand text-white" href="/"><i class="fas fa-graduation-cap me-2"></i>Artigos Acadêmicos</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="/"><i class="fas fa-home me-1"></i> Início</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="/artigos"><i class="fas fa-book me-1"></i> Artigos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="/admin"><i class="fas fa-cog me-1"></i> Painel Admin</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex" id="user-dropdown">
+                        <div class="dropdown">
+                            <button class="btn btn-light dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-user-circle me-1"></i> <span id="username">Administrador</span>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                                <li><a class="dropdown-item" href="/perfil"><i class="fas fa-user me-1"></i> Meu Perfil</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#" id="logout-btn"><i class="fas fa-sign-out-alt me-1"></i> Sair</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="admin-layout">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- Sidebar -->
+                <div class="col-md-3 col-lg-2 admin-sidebar py-3">
+                    <div class="d-flex flex-column">
+                        <h5 class="mb-3 text-white">Painel Administrativo</h5>
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#dashboard" data-bs-toggle="tab">
+                                    <i class="fas fa-tachometer-alt me-2"></i> Dashboard
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#artigos-pendentes" data-bs-toggle="tab">
+                                    <i class="fas fa-file-alt me-2"></i> Artigos Pendentes
+                                    <span class="badge bg-warning ms-1" id="artigos-pendentes-count">0</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#comentarios-pendentes" data-bs-toggle="tab">
+                                    <i class="fas fa-comments me-2"></i> Comentários Pendentes
+                                    <span class="badge bg-warning ms-1" id="comentarios-pendentes-count">0</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#usuarios" data-bs-toggle="tab">
+                                    <i class="fas fa-users me-2"></i> Usuários
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#estatisticas" data-bs-toggle="tab">
+                                    <i class="fas fa-chart-bar me-2"></i> Estatísticas
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Conteúdo principal -->
+                <div class="col-md-9 col-lg-10 admin-content py-3">
+                    <div class="tab-content">
+                        <!-- Dashboard -->
+                        <div class="tab-pane fade show active" id="dashboard">
+                            <h3 class="mb-4">Dashboard</h3>
+                            
+                            <div class="row" id="stats-cards">
+                                <div class="col-md-6 col-lg-3 mb-4">
+                                    <div class="stat-card">
+                                        <div class="d-flex justify-content-between">
+                                            <div>
+                                                <h3 id="total-usuarios">0</h3>
+                                                <p>Usuários</p>
+                                            </div>
+                                            <div class="stat-icon text-primary">
+                                                <i class="fas fa-users"></i>
+                                            </div>
+                                        </div>
+                                        <div class="mt-2">
+                                            <small class="text-success">
+                                                <i class="fas fa-arrow-up me-1"></i>
+                                                <span id="novos-usuarios">0</span> novos nos últimos 30 dias
+                                            </small>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6 col-lg-3 mb-4">
+                                    <div class="stat-card">
+                                        <div class="d-flex justify-content-between">
+                                            <div>
+                                                <h3 id="total-artigos">0</h3>
+                                                <p>Artigos</p>
+                                            </div>
+                                            <div class="stat-icon text-success">
+                                                <i class="fas fa-file-alt"></i>
+                                            </div>
+                                        </div>
+                                        <div class="mt-2">
+                                            <small class="text-success">
+                                                <i class="fas fa-arrow-up me-1"></i>
+                                                <span id="novos-artigos">0</span> novos nos últimos 30 dias
+                                            </small>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6 col-lg-3 mb-4">
+                                    <div class="stat-card">
+                                        <div class="d-flex justify-content-between">
+                                            <div>
+                                                <h3 id="total-downloads">0</h3>
+                                                <p>Downloads</p>
+                                            </div>
+                                            <div class="stat-icon text-info">
+                                                <i class="fas fa-download"></i>
+                                            </div>
+                                        </div>
+                                        <div class="mt-2">
+                                            <small class="text-muted">
+                                                <i class="fas fa-eye me-1"></i>
+                                                <span id="total-visualizacoes">0</span> visualizações
+                                            </small>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6 col-lg-3 mb-4">
+                                    <div class="stat-card">
+                                        <div class="d-flex justify-content-between">
+                                            <div>
+                                                <h3 id="media-avaliacoes">0.0</h3>
+                                                <p>Média de Avaliações</p>
+                                            </div>
+                                            <div class="stat-icon text-warning">
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                        </div>
+                                        <div class="mt-2">
+                                            <small class="text-muted">
+                                                <i class="fas fa-comment me-1"></i>
+                                                <span id="total-avaliacoes">0</span> avaliações
+                                            </small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <div class="card">
+                                        <div class="card-header bg-primary text-white">
+                                            <h5 class="mb-0">Artigos Mais Visualizados</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="table-responsive">
+                                                <table class="table table-hover">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Título</th>
+                                                            <th>Autor</th>
+                                                            <th>Visualizações</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="artigos-mais-vistos">
+                                                        <tr>
+                                                            <td colspan="3" class="text-center">Carregando...</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6 mb-4">
+                                    <div class="card">
+                                        <div class="card-header bg-success text-white">
+                                            <h5 class="mb-0">Artigos Mais Baixados</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="table-responsive">
+                                                <table class="table table-hover">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Título</th>
+                                                            <th>Autor</th>
+                                                            <th>Downloads</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="artigos-mais-baixados">
+                                                        <tr>
+                                                            <td colspan="3" class="text-center">Carregando...</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-12 mb-4">
+                                    <div class="card">
+                                        <div class="card-header bg-info text-white">
+                                            <h5 class="mb-0">Artigos Mais Bem Avaliados</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="table-responsive">
+                                                <table class="table table-hover">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Título</th>
+                                                            <th>Autor</th>
+                                                            <th>Avaliação Média</th>
+                                                            <th>Total de Avaliações</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="artigos-mais-avaliados">
+                                                        <tr>
+                                                            <td colspan="4" class="text-center">Carregando...</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Artigos Pendentes -->
+                        <div class="tab-pane fade" id="artigos-pendentes">
+                            <h3 class="mb-4">Artigos Pendentes
+(Content truncated due to size limit. Use line ranges to read in chunks)

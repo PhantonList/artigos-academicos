@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artigos Acadêmicos</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+            <div class="container">
+                <a class="navbar-brand text-white" href="/"><i class="fas fa-graduation-cap me-2"></i>Artigos Acadêmicos</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="/"><i class="fas fa-home me-1"></i> Início</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="/artigos"><i class="fas fa-book me-1"></i> Artigos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="/submeter"><i class="fas fa-upload me-1"></i> Submeter Artigo</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="/meus-artigos"><i class="fas fa-folder me-1"></i> Meus Artigos</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex">
+                        <a href="/login" class="btn btn-light me-2"><i class="fas fa-sign-in-alt me-1"></i> Entrar</a>
+                        <a href="/cadastro" class="btn btn-outline-light"><i class="fas fa-user-plus me-1"></i> Cadastrar</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="py-4 bg-light">
+            <div class="container text-center">
+                <div class="row justify-content-center">
+                    <div class="col-md-6">
+                        <a href="/submeter" class="btn btn-primary btn-lg me-2 mb-2"><i class="fas fa-upload me-2"></i> Submeter Artigo</a>
+                        <a href="/artigos" class="btn btn-secondary btn-lg mb-2"><i class="fas fa-search me-2"></i> Explorar Artigos</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-5">
+            <div class="container">
+                <h2 class="text-center mb-4">Artigos Recentes</h2>
+                <div class="row" id="artigos-recentes">
+                    <!-- Artigos serão carregados dinamicamente aqui -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Impacto da Inteligência Artificial na Educação Superior</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">Maria Silva, Universidade Federal</h6>
+                                <p class="card-text">Este artigo analisa como a inteligência artificial está transformando os métodos de ensino...</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="badge bg-primary">Tecnologia</span>
+                                    <small class="text-muted">15/03/2025</small>
+                                </div>
+                                <div class="mt-3">
+                                    <span class="me-2"><i class="fas fa-download"></i> 87</span>
+                                    <span><i class="fas fa-star"></i> 4.5</span>
+                                </div>
+                            </div>
+                            <div class="card-footer bg-white border-top-0">
+                                <a href="/artigo/1" class="btn btn-sm btn-outline-primary">Ver Detalhes</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-4">
+                    <a href="/artigos" class="btn btn-outline-primary"><i class="fas fa-list me-1"></i> Ver Todos os Artigos</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-5 bg-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 text-center p-4">
+                            <div class="mb-3">
+                                <i class="fas fa-upload text-primary" style="font-size: 3rem;"></i>
+                            </div>
+                            <h3>Submeta Seus Artigos</h3>
+                            <p>Compartilhe suas pesquisas e trabalhos acadêmicos com seus colegas de curso.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 text-center p-4">
+                            <div class="mb-3">
+                                <i class="fas fa-comments text-primary" style="font-size: 3rem;"></i>
+                            </div>
+                            <h3>Receba Feedback</h3>
+                            <p>Obtenha críticas construtivas e sugestões para melhorar seu trabalho.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 text-center p-4">
+                            <div class="mb-3">
+                                <i class="fas fa-users text-primary" style="font-size: 3rem;"></i>
+                            </div>
+                            <h3>Colabore com Colegas</h3>
+                            <p>Crie uma comunidade de aprendizado e melhore a qualidade dos trabalhos acadêmicos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <h5>Artigos Acadêmicos</h5>
+                    <p>Uma plataforma para compartilhamento de conhecimento acadêmico entre colegas de curso.</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Links Rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="/" class="text-white">Início</a></li>
+                        <li><a href="/artigos" class="text-white">Artigos</a></li>
+                        <li><a href="/submeter" class="text-white">Submeter Artigo</a></li>
+                        <li><a href="/politica-privacidade" class="text-white">Política de Privacidade</a></li>
+                        <li><a href="/termos-uso" class="text-white">Termos de Uso</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Contato</h5>
+                    <p><i class="fas fa-envelope me-2"></i>contato@artigosacademicos.com</p>
+                    <p><i class="fas fa-phone me-2"></i>(00) 12345-6789</p>
+                    <div class="mt-3">
+                        <a href="#" class="text-white me-2"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white me-2"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white me-2"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center">
+                <p class="mb-0">&copy; 2025 Artigos Acadêmicos. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/main.js"></script>
+</body>
+</html>
